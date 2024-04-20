@@ -23,3 +23,27 @@ Route::get('animals', function () {
     $hewan = ["monkey","dragonfly","tiger","butterfly","crocodile"];
     return view ('animals_page',compact('king','hewan'));
 });
+
+Route::get('/halaman2', function () {
+    return view('animals');
+});
+
+Route::get('/halaman3', function () {
+    return view('fruits');
+});
+
+Route::get('/about', function () {
+    $nama = "Rizky muhammad R";
+    $jenis = "laki laki";
+    $pendidikan = "SMK";
+    $pekerjaan = "pelajar";
+
+    return view('biodata', compact('nama', 'jenis', 'pendidikan', 'pekerjaan'));
+
+});
+
+// parameter
+Route::get('/sample/{nama}', function (Request $request, $nama) {
+    $nama2 = $nama;
+    return view('sample',compact('nama2'));
+});
