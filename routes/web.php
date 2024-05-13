@@ -1,5 +1,9 @@
 <?php
-
+use App\Models\Siswa;
+use App\Models\Sekolah;
+use App\Models\film;
+use GuzzleHttp\Psr7\Request;
+use App\Http\Controllers\MovieController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -13,7 +17,7 @@ Route::get('/about', function () {
 // route basic
 Route::get('/about', function () {
     return '<h1>Halo</h1>'
-    .'selamat datang di webapp saya<br>' 
+    .'selamat datang di webapp saya<br>'
     .'laravel,emang keren';
 });
 
@@ -47,3 +51,34 @@ Route::get('/sample/{nama}', function (Request $request, $nama) {
     $nama2 = $nama;
     return view('sample',compact('nama2'));
 });
+
+Route::get('siswa', function(){
+    return view('siswa');
+});
+
+Route::get('sekolah', function () {
+ return view('sekolah');
+});
+
+Route::get('album', function () {
+ return view('album');
+ //return Album::all();
+});
+
+Route::get('film', function () {
+ return view('film');
+});
+
+Route::get('film/{id}', function (int $id) {
+ return view('detail-film', ['film' => Film::find($id)]);
+});
+
+//route with controller
+Route::get('perkenalan', [App\Http\Controllers\MyController::class,'introduce']);
+
+Route::get('hewan', [App\Http\Controllers\MyController::class, 'animals']);
+
+// route movie
+Route::get('movie', [MovieController::class, 'getMovie']);
+Route::get('movie/{id}',[movieController::class,'GetMovieById']);
+
