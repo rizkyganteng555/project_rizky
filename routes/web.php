@@ -4,6 +4,7 @@ use App\Models\Sekolah;
 use App\Models\film;
 use GuzzleHttp\Psr7\Request;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ArtikelController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -82,3 +83,8 @@ Route::get('hewan', [App\Http\Controllers\MyController::class, 'animals']);
 Route::get('movie', [MovieController::class, 'getMovie']);
 Route::get('movie/{id}',[movieController::class,'GetMovieById']);
 
+Route::get('artikel', [ArtikelController::class, 'getArtikel']);
+
+Route::get('artikel/id/{id}', [ArtikelController::class, 'getArtikelById']);
+
+Route::get('artikel/kategori/{kategori}', [ArtikelController::class, 'getArtikelByKategori']);
