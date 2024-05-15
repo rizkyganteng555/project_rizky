@@ -5,6 +5,7 @@ use App\Models\film;
 use GuzzleHttp\Psr7\Request;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\ArtikelController;
+use App\Http\Controllers\PenulisController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -88,3 +89,10 @@ Route::get('artikel', [ArtikelController::class, 'getArtikel']);
 Route::get('artikel/id/{id}', [ArtikelController::class, 'getArtikelById']);
 
 Route::get('artikel/kategori/{kategori}', [ArtikelController::class, 'getArtikelByKategori']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::resource('penulis', PenulisController::class);

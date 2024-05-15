@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Movie;
 class MovieController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     //membuat semua data
     public function getMovie(){
         //melihat semua data yang ada pada model "Movie"

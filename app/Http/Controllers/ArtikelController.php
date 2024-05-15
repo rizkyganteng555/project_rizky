@@ -6,6 +6,10 @@ use App\Models\Artikel;
 
 class ArtikelController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
  //membuat semua data
  public function getArtikel()
  {
