@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Album example · Bootstrap v5.0</title>
+    <title>FILM BOSTRAP :O</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
 
@@ -28,6 +28,8 @@
     <link rel="mask-icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/safari-pinned-tab.svg"
         color="#7952b3">
     <link rel="icon" href="https://getbootstrap.com/docs/5.0/assets/img/favicons/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.7/css/dataTables.bootstrap5.css">
     <meta name="theme-color" content="#7952b3">
 
 
@@ -52,20 +54,32 @@
 
 <body>
 
-{{-- start header --}}
-    @include('layout.header')
-{{-- end header --}}
+    {{-- start header --}}
+    @include('Layout.header')
+    {{-- end header --}}
     <main class="py-4">
         @yield('content')
-
     </main>
 
-    {{-- start footer --}}
-    @include('layout.footer')
-    {{-- end footer --}}
+    {{-- start --}}
+    @include('Layout.footer')
+    {{-- end --}}
 
+    <script src="//code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.7/js/dataTables.bootstrap5.js"></script>
+    <script>
+        new DataTable('#datatable');
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('.select-multiple').select2();
+        });
     </script>
 
 

@@ -14,40 +14,47 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
-                            <tr>
-                                <th>No</th>
-                                <th>Judul buku</th>
-                                <th>Penulis</th>
-                                <th>Cover</th>
-                                <th>Aksi</th>
-                            </tr>
+                        <table class="table" id="datatable">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Judul buku</th>
+                                    <th>Penulis</th>
+                                    <th>Cover</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
                             @php $no = 1; @endphp
-                            @foreach ($buku as $item)
-                            <tr>
-                                <td>{{ $no++ }}</td>
-                                <td>{{ $item->judul }}</td>
-                                <td>{{ $item->penulis->nama_penulis }}</td>
-                                <td align="center"><img src="{{asset('images/buku/'.$item->cover)}}"style="width: 100px" alt=""></td>
-                                <td>
-                                    <form action="{{ route('buku.destroy', $item->id) }}" id="delete-data"
-                                        method="post">
-                                        @method('DELETE')
-                                        @csrf
-                                        <a href="{{ route('buku.edit', $item->id) }}" class="btn btn-sm btn-success">
-                                            Edit
-                                        </a>
-                                        <a href="{{ route('buku.show', $item->id) }}" class="btn btn-sm btn-warning">
-                                            Show
-                                        </a>
+                            <tbody>
+                                @foreach ($buku as $item)
+                                <tr>
+                                    <td>{{ $no++ }}</td>
+                                    <td>{{ $item->judul }}</td>
+                                    <td>{{ $item->penulis->nama_penulis }}</td>
+                                    <td align="center"><img src="{{asset('images/buku/'.$item->cover)}}"
+                                            style="width: 100px" alt=""></td>
+                                    <td>
+                                        <form action="{{ route('buku.destroy', $item->id) }}" id="delete-data"
+                                            method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <a href="{{ route('buku.edit', $item->id) }}"
+                                                class="btn btn-sm btn-success">
+                                                Edit
+                                            </a>
+                                            <a href="{{ route('buku.show', $item->id) }}"
+                                                class="btn btn-sm btn-warning">
+                                                Show
+                                            </a>
 
-                                        <button class="btn btn-sm btn-danger" type="submit"
-                                            onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
-                                            Delete</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
+                                            <button class="btn btn-sm btn-danger" type="submit"
+                                                onclick="return confirm('Apakah anda yakin ingin menghapus data ini?')">
+                                                Delete</button>
+                                        </form>
+                                    </td>
+                                </tr> 
+                                @endforeach
+                            </tbody>
                         </table>
                     </div>
                 </div>
